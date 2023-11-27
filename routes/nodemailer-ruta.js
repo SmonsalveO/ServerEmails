@@ -4,9 +4,9 @@ const nodemailer = Router()
 const cron = require('node-cron');
 
 nodemailer.post("/", async (req, res) => {
-    const {gmail, name, mensaje, hora, programar} = req.body
+    const {gmail, name, mensaje, hora} = req.body
     try {
-        if(programar === null){
+        if(hora === null){
             await transporter.sendMail({
                 from:`mensaje enviado por ${name}`,
                 to: gmail,
@@ -15,7 +15,7 @@ nodemailer.post("/", async (req, res) => {
             res.send('Correo enviado correctamente');
             return
         }
-        if (programar === 'on'){
+        if (programar =! null){
             const [horaCron, minutoCron] = hora.split(':');
                 cron.schedule(`${minutoCron} ${horaCron} * * *`, async () => {
                     await transporter.sendMail({
