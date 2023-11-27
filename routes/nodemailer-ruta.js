@@ -3,7 +3,7 @@ const transporter = require("../config/nodemailer")
 const nodemailer = Router()
 const cron = require('node-cron');
 
-nodemailer.post("/enviar", async (req, res) => {
+nodemailer.post("/", async (req, res) => {
     const {gmail, name, mensaje, hora, programar} = req.body
     try {
         if(programar === null){
