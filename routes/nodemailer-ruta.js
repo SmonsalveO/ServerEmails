@@ -24,7 +24,7 @@ nodemailer.post("/", async (req, res) => {
                     text: `${mensaje}`
                     });
             });
-            res.send('Correo programado correctamente');
+            res.send('Correo programado correctamente', horaCron, minutoCron);
         }
     } catch (error) {
         console.error(error);
