@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const transporter = require("../../config/nodemailer")
+const transporter = require("/Users/Temp Tech/Desktop/ServerEmails/config/nodemailer.js")
 const nodemailer = Router()
 const cron = require('node-cron');
 
